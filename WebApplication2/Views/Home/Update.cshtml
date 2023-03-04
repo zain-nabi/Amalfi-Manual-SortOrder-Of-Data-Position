@@ -1,0 +1,16 @@
+﻿@model WebApplication2.Models.MetricsVM
+
+<form asp-action="Update" asp-controller="Home" formaction="POST">
+    <label>Descr</label>
+    <input type="text" value="@Model.Metrics.description" asp-for="@Model.Metrics.description" />
+
+
+
+    <label>sort Ordewr</label>
+    <select asp-for="@Model.Metrics.display_order" asp-items="@Model.DDL">
+        <option label="Select display" disabled selected></option>
+    </select>
+    @Html.HiddenFor(model => Model.Metrics.metricID)
+    @Html.HiddenFor(model => Model.Metrics.campaignID)
+    <input type="submit" value="Update" class="btn btn-primary" />
+</form>

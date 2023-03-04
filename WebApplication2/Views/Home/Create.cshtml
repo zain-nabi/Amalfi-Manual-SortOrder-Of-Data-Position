@@ -1,0 +1,32 @@
+﻿@model WebApplication2.Models.MetricsVM
+
+    <div class="card">
+        <div class="card-header">Metrics</div>
+        <div class="card-body">
+            <table>
+                <thead class="thead-light">
+                    <tr>
+                        <th>Position</th>
+                        <th>description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="font-size-1">
+                    @foreach (var item in Model.MetricsList)
+                    {
+                        <tr>
+                            <td>@item.display_order</td>
+                        </tr>
+                        <tr>
+                            <td>@item.description</td>
+                        </tr>
+                        <tr>
+                           <td>
+                               <a href="@Url.Action("Update", "Home", new { metricID = item.metricID})">Update</a>
+                           </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
